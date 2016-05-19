@@ -16,16 +16,20 @@ android {
     }
 
     String owm_api_key = new File('api_owm').text
+    String local_sensor_endpoint = new File('local_sensor_endpoint').text
 
     buildTypes {
 
         debug {
             buildConfigField "String[]", "OWM_API_KEY", owm_api_key
+            buildConfigField "String", "LOCAL_SENSOR_ENDPOINT", local_sensor_endpoint
             debuggable true
             minifyEnabled false
+            multiDexEnabled true
         }
         release {
             buildConfigField "String[]", "OWM_API_KEY", owm_api_key
+            buildConfigField "String", "LOCAL_SENSOR_ENDPOINT", local_sensor_endpoint
             minifyEnabled false
             debuggable false
             multiDexEnabled true

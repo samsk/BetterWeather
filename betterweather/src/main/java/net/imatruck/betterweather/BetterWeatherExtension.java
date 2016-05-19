@@ -118,6 +118,7 @@ public class BetterWeatherExtension extends DashClockExtension {
 
     public static final String YAHOO_WEATHER_API = "yahoo_weather_api";
     public static final String OPENWEATHERMAP_WEATHER_API = "openweathermap_weather_api";
+    public static final String CUSTOM_WEATHER_API = "custom_weather_api";
 
     private static final long STALE_LOCATION_NANOS = 10l * 60000000000l; // 10 minutes
 

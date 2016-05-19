@@ -15,6 +15,8 @@
  */
 package net.imatruck.betterweather.weatherapi;
 
+import com.tdalabs.betterweather.api.CustomWeatherAPIClient;
+
 import net.imatruck.betterweather.BetterWeatherExtension;
 
 public class WeatherAPIFactory {
@@ -25,6 +27,10 @@ public class WeatherAPIFactory {
         }
         if (apiSetting.equals(BetterWeatherExtension.YAHOO_WEATHER_API)) {
             return new YahooWeatherAPIClient();
+        }
+
+        else if (apiSetting.equals(BetterWeatherExtension.CUSTOM_WEATHER_API)) {
+            return new CustomWeatherAPIClient();
         }
 
         return new YahooWeatherAPIClient();
