@@ -56,11 +56,11 @@ public class CustomWeatherAPIClient extends YahooWeatherAPIClient {
     private boolean parseCurrentConditionsData(BetterWeatherData data, JSONObject response) {
         if(response != null) {
             try {
-                data.temperature = (int) Math.round(response.getDouble("TEMPERATURE"));
-                data.humidity = Integer.toString(response.getInt("HUMIDITY"));
+                data.temperature = (int) Math.round(response.getDouble("temperature"));
+                data.humidity = Integer.toString(response.getInt("humidity"));
 
                 DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                Date lastValueDate = fmt.parse(response.getString("TIMESTAMP"));
+                Date lastValueDate = fmt.parse(response.getString("timestamp"));
 
                 if (Calendar.getInstance().getTime().getTime() - lastValueDate.getTime() > 1000 * 60 * 15 ) { // Check if we exceeded 15 mins timeout
                     LOGE(TAG, "Last value is older than 15 mins. Check your sensor!");
