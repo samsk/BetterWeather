@@ -1,6 +1,7 @@
 package com.tdalabs.betterweather.api;
 
 import net.imatruck.betterweather.BetterWeatherData;
+import net.imatruck.betterweather.BetterWeatherExtension;
 import net.imatruck.betterweather.BuildConfig;
 import net.imatruck.betterweather.LocationInfo;
 import net.imatruck.betterweather.utils.JsonReader;
@@ -56,7 +57,20 @@ public class CustomWeatherAPIClient extends YahooWeatherAPIClient {
     private boolean parseCurrentConditionsData(BetterWeatherData data, JSONObject response) {
         if(response != null) {
             try {
-                data.temperature = (int) Math.round(response.getDouble("temperature"));
+                int tempC = (int) Math.round(response.getDouble("temperature"));
+
+                switch (BetterWeatherExtension.getWeatherUnits()) {
+                    case "f":
+                        data.temperature = (int) Math.round((tempC * 9 / 5.0) + 32);
+                        break;
+                    case "c":
+                        data.temperature = tempC;
+                        break;
+                    default:
+                        LOGE(TAG, "Not able to detect temperature units");
+                        return true;
+                }
+
                 data.humidity = Integer.toString(response.getInt("humidity"));
 
                 DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
