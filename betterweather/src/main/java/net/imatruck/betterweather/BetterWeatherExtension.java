@@ -470,6 +470,10 @@ public class BetterWeatherExtension extends DashClockExtension {
                     scheduleRefresh(5);
                     return;
                 }
+                if (betterWeatherData.errorCode == BetterWeatherData.ErrorCodes.STALE) {
+                    publishUpdate(new BetterWeatherData(BetterWeatherData.ErrorCodes.STALE));
+                    return;
+                }
                 if (betterWeatherData.errorCode == BetterWeatherData.ErrorCodes.NONE) {
                     Bundle analytics = new Bundle();
                     analytics.putString("service", sWeatherAPI);

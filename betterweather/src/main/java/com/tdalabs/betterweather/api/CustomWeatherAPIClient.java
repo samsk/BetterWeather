@@ -47,17 +47,9 @@ public class CustomWeatherAPIClient extends YahooWeatherAPIClient {
             return new BetterWeatherData(BetterWeatherData.ErrorCodes.API);
         }
 
-        if (parseCurrentConditionsData(data, responseCurrent)) {
-            return new BetterWeatherData(BetterWeatherData.ErrorCodes.API);
-        }
-
-        return data;
-    }
-
-    private boolean parseCurrentConditionsData(BetterWeatherData data, JSONObject response) {
-        if(response != null) {
+        if(responseCurrent != null) {
             try {
-                int tempC = (int) Math.round(response.getDouble("temperature"));
+                int tempC = (int) Math.round(responseCurrent.getDouble("temperature"));
 
                 switch (BetterWeatherExtension.getWeatherUnits()) {
                     case "f":
@@ -67,28 +59,36 @@ public class CustomWeatherAPIClient extends YahooWeatherAPIClient {
                         data.temperature = tempC;
                         break;
                     default:
-                        LOGE(TAG, "Not able to detect temperature units");
-                        return true;
+                        throw new UndetectableTempUnitsException();
                 }
 
-                data.humidity = Integer.toString(response.getInt("humidity"));
+                data.humidity = Integer.toString(responseCurrent.getInt("humidity"));
 
                 DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                Date lastValueDate = fmt.parse(response.getString("timestamp"));
+                Date lastValueDate = fmt.parse(responseCurrent.getString("timestamp"));
 
                 if (Calendar.getInstance().getTime().getTime() - lastValueDate.getTime() > 1000 * 60 * 15 ) { // Check if we exceeded 15 mins timeout
                     LOGE(TAG, "Last value is older than 15 mins. Check your sensor!");
-                    return true;
+                    throw new StaleAPIDataException();
                 }
-            } catch (JSONException je) {
+            } catch (JSONException e) {
                 LOGE(TAG, "Error parsing local sensor temperature or humidity");
-                return true;
+                return new BetterWeatherData(BetterWeatherData.ErrorCodes.API);
             } catch (ParseException e) {
                 LOGE(TAG, "Error parsing local sensor last value timestamp");
-                return true;
+                return new BetterWeatherData(BetterWeatherData.ErrorCodes.API);
+            } catch (UndetectableTempUnitsException e) {
+                LOGE(TAG, "Not able to detect temperature units");
+                return new BetterWeatherData(BetterWeatherData.ErrorCodes.API);
+            } catch (StaleAPIDataException e) {
+                LOGE(TAG, "API returned stale data");
+                return new BetterWeatherData(BetterWeatherData.ErrorCodes.STALE);
             }
+        } else {
+            LOGE(TAG, "Null response from API");
+            return new BetterWeatherData(BetterWeatherData.ErrorCodes.API);
         }
 
-        return false;
+        return data;
     }
 }

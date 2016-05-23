@@ -93,7 +93,7 @@ public class BetterWeatherData {
     public ErrorCodes errorCode = ErrorCodes.NONE;
 
     public enum ErrorCodes {
-        NONE, UNKNOWN, LOCATION, INTERNET, API
+        NONE, UNKNOWN, LOCATION, INTERNET, API, STALE
     }
 
     public BetterWeatherData() {
@@ -305,6 +305,8 @@ public class BetterWeatherData {
                 return new int[]{R.string.error_internet, R.string.error_internet_expandedBody};
             case API:
                 return new int[]{R.string.error_api, R.string.error_api_expandedBody};
+            case STALE:
+                return new int[]{R.string.error_stale, R.string.error_api_expandedBody};
         }
 
         return new int[]{R.string.error_unknown, R.string.error_unknown_expandedBody};
