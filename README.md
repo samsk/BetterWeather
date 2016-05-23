@@ -21,3 +21,16 @@ License
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
 	limitations under the License.
+
+Custom Sensor API
+=================
+
+The API endpoint is specified in "local_sensor_endpoint" and should return JSON data like so:
+
+```json
+{
+  "timestamp":"2016-05-23 11:25:29",
+  "temperature":19.200000000000003,
+  "humidity":48
+}
+```
