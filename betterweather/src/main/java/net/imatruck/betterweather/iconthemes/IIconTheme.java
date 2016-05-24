@@ -16,5 +16,5 @@
 package net.imatruck.betterweather.iconthemes;
 
 public interface IIconTheme {
-    int getConditionIcon(int conditionCode);
+    int getConditionIcon(int conditionCode, int temperature);
 }

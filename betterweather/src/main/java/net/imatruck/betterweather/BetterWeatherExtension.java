@@ -115,6 +115,7 @@ public class BetterWeatherExtension extends DashClockExtension {
     public static final String CHAMELEON_ICON_THEME = "chameleon";
     public static final String GOOGLENOW_ICON_THEME = "googlenow";
     public static final String METEOCONS_ICON_THEME = "meteocons";
+    public static final String CLIMACONS_COLOR_ICON_THEME = "climacons-color";
 
     public static final String YAHOO_WEATHER_API = "yahoo_weather_api";
     public static final String OPENWEATHERMAP_WEATHER_API = "openweathermap_weather_api";
@@ -601,7 +602,7 @@ public class BetterWeatherExtension extends DashClockExtension {
                     .status(getString(R.string.error_status))
                     .expandedTitle(getString(errorStrings[0]))
                     .expandedBody(getString(errorStrings[1]))
-                    .icon(getConditionIconId(-1))
+                    .icon(getConditionIconId(-1, 27))
                     .clickIntent(prepareClickIntent());
 
             LOGD(TAG, "Created error data, " + extensionData.expandedTitle());
@@ -616,7 +617,7 @@ public class BetterWeatherExtension extends DashClockExtension {
 
             String status = formatStatusText(weatherData, temperature);
 
-            int conditionIconId = getConditionIconId(weatherData.conditionCode);
+            int conditionIconId = getConditionIconId(weatherData.conditionCode, weatherData.temperature);
 
             @SuppressWarnings("ResourceType") String conditionText = getString(BetterWeatherData.getStatusText(weatherData.conditionCode));
 
@@ -780,11 +781,11 @@ public class BetterWeatherExtension extends DashClockExtension {
      * @param conditionCode The status code for the current condition
      * @return Resource ID for the icon
      */
-    private int getConditionIconId(int conditionCode) {
+    private int getConditionIconId(int conditionCode, int temperature) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         String sIconTheme = sp.getString(PREF_WEATHER_ICON_THEME, CLIMACONS_ICON_THEME);
 
-        return IconThemeFactory.getIconThemeFromSetting(sIconTheme).getConditionIcon(conditionCode);
+        return IconThemeFactory.getIconThemeFromSetting(sIconTheme).getConditionIcon(conditionCode, temperature);
     }
 
     /**

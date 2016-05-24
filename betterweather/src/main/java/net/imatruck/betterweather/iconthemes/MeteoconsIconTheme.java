@@ -20,7 +20,7 @@ import net.imatruck.betterweather.R;
 public class MeteoconsIconTheme implements IIconTheme {
 
     @Override
-    public int getConditionIcon(int conditionCode) {
+    public int getConditionIcon(int conditionCode, int temperature) {
         switch (conditionCode) {
             case 20: // foggy
             case 19: // dust

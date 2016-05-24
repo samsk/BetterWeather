@@ -15,25 +15,30 @@
  */
 package net.imatruck.betterweather.iconthemes;
 
+import com.tdalabs.betterweather.api.ClimaconsColorIconTheme;
+
 import net.imatruck.betterweather.BetterWeatherExtension;
 
 public class IconThemeFactory {
 
     public static IIconTheme getIconThemeFromSetting(String iconThemeSetting) {
 
-        if (iconThemeSetting.equals(BetterWeatherExtension.CLIMACONS_ICON_THEME)) {
-            return new ClimaconsIconTheme();
-        } else if (iconThemeSetting.equals(BetterWeatherExtension.WEATHERCONS_ICON_THEME)) {
-            return new WeatherconsIconTheme();
-        } else if (iconThemeSetting.equals(BetterWeatherExtension.CHAMELEON_ICON_THEME)) {
-            return new ChameleonIconTheme();
-        } else if (iconThemeSetting.equals(BetterWeatherExtension.GOOGLENOW_ICON_THEME)) {
-            return new GoogleNowIconTheme();
-        } else if (iconThemeSetting.equals(BetterWeatherExtension.METEOCONS_ICON_THEME)) {
-            return new MeteoconsIconTheme();
+        switch (iconThemeSetting) {
+            case BetterWeatherExtension.CLIMACONS_ICON_THEME:
+                return new ClimaconsIconTheme();
+            case BetterWeatherExtension.WEATHERCONS_ICON_THEME:
+                return new WeatherconsIconTheme();
+            case BetterWeatherExtension.CHAMELEON_ICON_THEME:
+                return new ChameleonIconTheme();
+            case BetterWeatherExtension.GOOGLENOW_ICON_THEME:
+                return new GoogleNowIconTheme();
+            case BetterWeatherExtension.METEOCONS_ICON_THEME:
+                return new MeteoconsIconTheme();
+            case BetterWeatherExtension.CLIMACONS_COLOR_ICON_THEME:
+                return new ClimaconsColorIconTheme();
+            default:
+                return new ClimaconsIconTheme();
         }
-
-        return new ClimaconsIconTheme();
 
     }
 

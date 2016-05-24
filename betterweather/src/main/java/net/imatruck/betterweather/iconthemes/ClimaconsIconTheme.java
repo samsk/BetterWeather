@@ -19,7 +19,7 @@ import net.imatruck.betterweather.R;
 
 public class ClimaconsIconTheme implements IIconTheme {
     @Override
-    public int getConditionIcon(int conditionCode) {
+    public int getConditionIcon(int conditionCode, int temperature) {
         switch (conditionCode) {
             case 20: // foggy
                 return R.drawable.climacons_foggy;
