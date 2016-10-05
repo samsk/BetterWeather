@@ -44,6 +44,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.common.math.DoubleMath;
 
 import net.imatruck.betterweather.BetterWeatherExtension;
+import net.imatruck.betterweather.BuildConfig;
 import net.imatruck.betterweather.R;
 import net.imatruck.betterweather.utils.HelpUtils;
 import net.imatruck.betterweather.utils.LogUtils;
@@ -180,7 +181,7 @@ public class BetterWeatherSettingsActivity extends BaseSettingsActivity implemen
         } else {
             locationPref.setEnabled(true);
             if (touchLocationSetting) {
-                locationPref.setValue(getString(R.string.pref_weather_location_default));
+                locationPref.setValue(BuildConfig.LOCAL_SENSOR_ENDPOINT[1]);
             }
             hideNamePref.setEnabled(true);
             hideNamePref.setChecked(false);

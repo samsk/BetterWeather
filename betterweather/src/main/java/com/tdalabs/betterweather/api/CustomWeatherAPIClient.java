@@ -41,7 +41,7 @@ public class CustomWeatherAPIClient<T extends IWeatherAPI> implements IWeatherAP
         JSONObject responseCurrent;
 
         try {
-            responseCurrent = JsonReader.readJsonFromUrl(String.format(Locale.getDefault(), BuildConfig.LOCAL_SENSOR_ENDPOINT));
+            responseCurrent = JsonReader.readJsonFromUrl(String.format(Locale.getDefault(), BuildConfig.LOCAL_SENSOR_ENDPOINT[0]));
         }
         catch (JSONException je){
             LOGE(TAG, "Error parsing JSON from local sensor", je);

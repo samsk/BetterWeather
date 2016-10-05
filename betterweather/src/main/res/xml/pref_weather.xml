@@ -42,7 +42,8 @@ limitations under the License.
             android:defaultValue="false"
             android:summaryOn="@string/pref_weather_automatic_location_summary_on"
             android:summaryOff="@string/pref_weather_automatic_location_summary_off"
-            android:title="@string/pref_weather_automatic_location_title" />
+            android:title="@string/pref_weather_automatic_location_title"
+            android:enabled="false" />
 
         <net.imatruck.betterweather.settings.WeatherLocationPreference
             android:key="pref_weather_location"
