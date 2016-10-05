@@ -25,7 +25,15 @@ License
 Custom Sensor API
 =================
 
-The API endpoint is specified in "local_sensor_endpoint" and should return JSON data like so:
+The format of the "local_sensor_endpoint" file is as follows:
+
+```javascript
+
+{ "http://api.endpoint/",
+  "LocatedInCity" }
+```
+
+The API endpoint should return JSON data like so:
 
 ```json
 {
