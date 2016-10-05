@@ -55,7 +55,8 @@ limitations under the License.
             android:key="pref_weather_use_only_network"
             android:summaryOn="@string/pref_weather_use_only_network_summary_on"
             android:summaryOff="@string/pref_weather_use_only_network_summary_off"
-            android:title="@string/pref_weather_use_only_network_title" />
+            android:title="@string/pref_weather_use_only_network_title"
+            android:enabled="false" />
 
     </PreferenceCategory>
     <PreferenceCategory

@@ -30,7 +30,7 @@ The format of the "local_sensor_endpoint" file is as follows:
 ```javascript
 
 { "http://api.endpoint/",
-  "LocatedInCity" }
+  "0/LocatedInCity/DecimalLatitude/DecimalLongitude" }
 ```
 
 The API endpoint should return JSON data like so:
