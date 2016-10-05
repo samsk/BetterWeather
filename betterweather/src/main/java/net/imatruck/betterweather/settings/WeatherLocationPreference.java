@@ -27,6 +27,7 @@ import android.preference.Preference;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 
+import net.imatruck.betterweather.BuildConfig;
 import net.imatruck.betterweather.R;
 import net.imatruck.betterweather.utils.LogUtils;
 
@@ -48,6 +49,7 @@ public class WeatherLocationPreference extends Preference {
     public WeatherLocationPreference(Context context, AttributeSet attrs,
                                      int defStyle) {
         super(context, attrs, defStyle);
+        this.setEnabled(false);
     }
 
     public void setValue(String value) {
@@ -63,7 +65,7 @@ public class WeatherLocationPreference extends Preference {
 
     public static CharSequence getDisplayValue(Context context, String value) {
         if (TextUtils.isEmpty(value) || value.indexOf('/') < 0) {
-            return context.getString(R.string.pref_weather_location_automatic);
+            return BuildConfig.LOCAL_SENSOR_ENDPOINT[1].split("/")[1];
         }
         String[] locationDetails = value.split("/");
         return locationDetails[1];

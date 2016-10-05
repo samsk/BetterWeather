@@ -71,7 +71,6 @@ public class BetterWeatherSettingsActivity extends BaseSettingsActivity implemen
         getPreferenceScreen().getSharedPreferences()
                 .registerOnSharedPreferenceChangeListener(this);
         updateShortcutPreferenceState(BetterWeatherExtension.PREF_WEATHER_REFRESH_ON_TOUCH);
-        updateLocationPrefState(BetterWeatherExtension.PREF_WEATHER_AUTOMATIC_LOCATION, false);
 
         Preference locationPreference = findPreference(BetterWeatherExtension.PREF_WEATHER_LOCATION);
         locationPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
@@ -158,35 +157,6 @@ public class BetterWeatherSettingsActivity extends BaseSettingsActivity implemen
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(BetterWeatherExtension.PREF_WEATHER_REFRESH_ON_TOUCH))
             updateShortcutPreferenceState(key);
-        else if (key.equals(BetterWeatherExtension.PREF_WEATHER_AUTOMATIC_LOCATION))
-            updateLocationPrefState(key, true);
-    }
-
-    private void updateLocationPrefState(String key, boolean touchLocationSetting) {
-        SwitchPreference autoLocPref = (SwitchPreference) findPreference(key);
-        WeatherLocationPreference locationPref = (WeatherLocationPreference) findPreference(BetterWeatherExtension.PREF_WEATHER_LOCATION);
-        CheckBoxPreference hideNamePref = (CheckBoxPreference) findPreference(BetterWeatherExtension.PREF_WEATHER_HIDE_LOCATION_NAME);
-
-        if (autoLocPref.isChecked()) {
-
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
-            }
-
-            locationPref.setEnabled(false);
-            locationPref.setValue("");
-            hideNamePref.setEnabled(false);
-            hideNamePref.setChecked(true);
-        } else {
-            locationPref.setEnabled(true);
-            if (touchLocationSetting) {
-                locationPref.setValue(BuildConfig.LOCAL_SENSOR_ENDPOINT[1]);
-            }
-            hideNamePref.setEnabled(true);
-            hideNamePref.setChecked(false);
-        }
-
     }
 
     private void updateShortcutPreferenceState(String key) {
