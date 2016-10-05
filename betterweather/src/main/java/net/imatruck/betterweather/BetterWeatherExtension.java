@@ -119,7 +119,8 @@ public class BetterWeatherExtension extends DashClockExtension {
 
     public static final String YAHOO_WEATHER_API = "yahoo_weather_api";
     public static final String OPENWEATHERMAP_WEATHER_API = "openweathermap_weather_api";
-    public static final String CUSTOM_WEATHER_API = "custom_weather_api";
+    public static final String CUSTOM_WEATHER_API_YAHOO = "custom_weather_api_yahoo";
+    public static final String CUSTOM_WEATHER_API_OPENWEATHERMAP = "custom_weather_api_openweathermap";
 
     private static final long STALE_LOCATION_NANOS = 10l * 60000000000l; // 10 minutes
 
@@ -346,7 +347,7 @@ public class BetterWeatherExtension extends DashClockExtension {
      * @throws IOException              If there's a problem parsing the data
      */
     private static BetterWeatherData getWeatherForLocation(Location location)
-            throws InvalidLocationException, IOException {
+            throws InvalidLocationException, IOException, InstantiationException, IllegalAccessException {
 
         LocationInfo locationInfo;
         if (!sUseCurrentLocation) {
@@ -455,7 +456,7 @@ public class BetterWeatherExtension extends DashClockExtension {
             BetterWeatherData weatherData = null;
             try {
                 weatherData = getWeatherForLocation(mLocation);
-            } catch (InvalidLocationException | IOException e) {
+            } catch (InvalidLocationException | IOException | InstantiationException | IllegalAccessException e) {
                 e.printStackTrace();
             }
             return weatherData;

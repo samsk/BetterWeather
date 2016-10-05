@@ -65,12 +65,14 @@ limitations under the License.
     <string-array name="pref_weather_api_display_names" translatable="false">
         <item>OpenWeatherMap</item>
         <item>Yahoo! Weather</item>
-        <item>Custom Weather API</item>
+        <item>Custom Weather API (Yahoo!)</item>
+        <item>Custom Weather API (OpenWeatherMap)</item>
     </string-array>
     <string-array name="pref_weather_api_values"  translatable="false">
         <item>openweathermap_weather_api</item>
         <item>yahoo_weather_api</item>
-        <item>custom_weather_api</item>
+        <item>custom_weather_api_yahoo</item>
+        <item>custom_weather_api_openweathermap</item>
     </string-array>
 
     <string name="pref_weather_show_today_forecast_title">Show today\'s forecast</string>

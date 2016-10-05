@@ -22,18 +22,17 @@ import net.imatruck.betterweather.BetterWeatherExtension;
 public class WeatherAPIFactory {
 
     public static IWeatherAPI getWeatherAPIFromSetting(String apiSetting) {
-        if (apiSetting.equals(BetterWeatherExtension.OPENWEATHERMAP_WEATHER_API)) {
-            return new OpenWeatherMapWeatherAPIClient();
+        switch (apiSetting) {
+            case BetterWeatherExtension.OPENWEATHERMAP_WEATHER_API:
+                return new OpenWeatherMapWeatherAPIClient();
+            case BetterWeatherExtension.YAHOO_WEATHER_API:
+                return new YahooWeatherAPIClient();
+            case BetterWeatherExtension.CUSTOM_WEATHER_API_YAHOO:
+                return new CustomWeatherAPIClient<>(YahooWeatherAPIClient.class);
+            case BetterWeatherExtension.CUSTOM_WEATHER_API_OPENWEATHERMAP:
+                return new CustomWeatherAPIClient<>(OpenWeatherMapWeatherAPIClient.class);
+            default:
+                return new YahooWeatherAPIClient();
         }
-        if (apiSetting.equals(BetterWeatherExtension.YAHOO_WEATHER_API)) {
-            return new YahooWeatherAPIClient();
-        }
-
-        else if (apiSetting.equals(BetterWeatherExtension.CUSTOM_WEATHER_API)) {
-            return new CustomWeatherAPIClient();
-        }
-
-        return new YahooWeatherAPIClient();
     }
-
 }

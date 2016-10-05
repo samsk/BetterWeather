@@ -30,5 +30,5 @@ import java.io.IOException;
 
 public interface IWeatherAPI {
 
-    public BetterWeatherData getWeatherDataForLocation(LocationInfo locationInfo) throws IOException;
+    public BetterWeatherData getWeatherDataForLocation(LocationInfo locationInfo) throws IOException, IllegalAccessException, InstantiationException;
 }

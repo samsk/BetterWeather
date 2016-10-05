@@ -6,6 +6,7 @@ import net.imatruck.betterweather.BuildConfig;
 import net.imatruck.betterweather.LocationInfo;
 import net.imatruck.betterweather.utils.JsonReader;
 import net.imatruck.betterweather.utils.LogUtils;
+import net.imatruck.betterweather.weatherapi.IWeatherAPI;
 import net.imatruck.betterweather.weatherapi.YahooWeatherAPIClient;
 
 import org.json.JSONException;
@@ -25,13 +26,17 @@ import static net.imatruck.betterweather.utils.LogUtils.LOGE;
 /**
  * Created by liviu on 2016-03-14.
  */
-public class CustomWeatherAPIClient extends YahooWeatherAPIClient {
+public class CustomWeatherAPIClient<T extends IWeatherAPI> implements IWeatherAPI {
+    private Class<T> clazz;
 
     private static final String TAG = LogUtils.makeLogTag(CustomWeatherAPIClient.class);
 
-    @Override
-    public BetterWeatherData getWeatherDataForLocation(LocationInfo locationInfo) throws IOException {
-        BetterWeatherData data = super.getWeatherDataForLocation(locationInfo);
+    public CustomWeatherAPIClient(Class<T> clazz){
+        this.clazz = clazz;
+    }
+
+    public BetterWeatherData getWeatherDataForLocation(LocationInfo locationInfo) throws IOException, IllegalAccessException, InstantiationException {
+        BetterWeatherData data = clazz.newInstance().getWeatherDataForLocation(locationInfo);
 
         JSONObject responseCurrent;
 
