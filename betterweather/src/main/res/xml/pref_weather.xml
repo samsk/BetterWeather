@@ -47,7 +47,8 @@ limitations under the License.
 
         <net.imatruck.betterweather.settings.WeatherLocationPreference
             android:key="pref_weather_location"
-            android:title="@string/pref_weather_location_title" />
+            android:title="@string/pref_weather_location_title"
+            android:enabled="false" />
 
         <CheckBoxPreference
             android:defaultValue="false"
