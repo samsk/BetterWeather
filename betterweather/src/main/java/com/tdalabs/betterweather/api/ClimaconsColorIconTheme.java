@@ -85,31 +85,31 @@ public class ClimaconsColorIconTheme implements IIconTheme {
             case 123: // blustery
             case 136: // hot
                 return R.drawable.climacons_sunny_cold;
-            case 10: // tornado
-            case 11: // tropical storm
-            case 12: // hurricane
+            case 100: // tornado
+            case 101: // tropical storm
+            case 102: // hurricane
             case 124: // windy
                 return R.drawable.climacons_windy_cold;
-            case 15: // mixed rain and snow
-            case 16: // mixed rain and sleet
-            case 17: // mixed snow and sleet
+            case 105: // mixed rain and snow
+            case 106: // mixed rain and sleet
+            case 107: // mixed snow and sleet
             case 118: // sleet
-            case 18: // freezing drizzle
+            case 108: // freezing drizzle
             case 110: // freezing rain
             case 114: // light snow showers
                 return R.drawable.climacons_mixed_rain_and_snow_cold;
             case 117: // hail
             case 135: // mixed rain and hail
                 return R.drawable.climacons_hail_cold;
-            case 19: // drizzle
+            case 109: // drizzle
                 return R.drawable.climacons_drizzle_cold;
             case 111: // showers
             case 112: // showers
                 return R.drawable.climacons_showers_cold;
             case 140: // scattered showers
                 return R.drawable.climacons_scattered_showers_cold;
-            case 13: // severe thunderstorms
-            case 14: // thunderstorms
+            case 103: // severe thunderstorms
+            case 104: // thunderstorms
             case 137: // isolated thunderstorms
             case 145: // thundershowers
             case 147: // isolated thundershowers
@@ -153,31 +153,31 @@ public class ClimaconsColorIconTheme implements IIconTheme {
             case 223: // blustery
             case 236: // hot
                 return R.drawable.climacons_sunny_mild;
-            case 20: // tornado
-            case 21: // tropical storm
-            case 22: // hurricane
+            case 200: // tornado
+            case 201: // tropical storm
+            case 202: // hurricane
             case 224: // windy
                 return R.drawable.climacons_windy_mild;
-            case 25: // mixed rain and snow
-            case 26: // mixed rain and sleet
-            case 27: // mixed snow and sleet
+            case 205: // mixed rain and snow
+            case 206: // mixed rain and sleet
+            case 207: // mixed snow and sleet
             case 218: // sleet
-            case 28: // freezing drizzle
+            case 208: // freezing drizzle
             case 210: // freezing rain
             case 214: // light snow showers
                 return R.drawable.climacons_mixed_rain_and_snow_mild;
             case 217: // hail
             case 235: // mixed rain and hail
                 return R.drawable.climacons_hail_mild;
-            case 29: // drizzle
+            case 209: // drizzle
                 return R.drawable.climacons_drizzle_mild;
             case 211: // showers
             case 212: // showers
                 return R.drawable.climacons_showers_mild;
             case 240: // scattered showers
                 return R.drawable.climacons_scattered_showers_mild;
-            case 23: // severe thunderstorms
-            case 24: // thunderstorms
+            case 203: // severe thunderstorms
+            case 204: // thunderstorms
             case 237: // isolated thunderstorms
             case 245: // thundershowers
             case 247: // isolated thundershowers
@@ -221,31 +221,31 @@ public class ClimaconsColorIconTheme implements IIconTheme {
             case 323: // blustery
             case 336: // hot
                 return R.drawable.climacons_sunny_pleasant;
-            case 30: // tornado
-            case 31: // tropical storm
-            case 32: // hurricane
+            case 300: // tornado
+            case 301: // tropical storm
+            case 302: // hurricane
             case 324: // windy
                 return R.drawable.climacons_windy_pleasant;
-            case 35: // mixed rain and snow
-            case 36: // mixed rain and sleet
-            case 37: // mixed snow and sleet
+            case 305: // mixed rain and snow
+            case 306: // mixed rain and sleet
+            case 307: // mixed snow and sleet
             case 318: // sleet
-            case 38: // freezing drizzle
+            case 308: // freezing drizzle
             case 310: // freezing rain
             case 314: // light snow showers
                 return R.drawable.climacons_mixed_rain_and_snow_pleasant;
             case 317: // hail
             case 335: // mixed rain and hail
                 return R.drawable.climacons_hail_pleasant;
-            case 39: // drizzle
+            case 309: // drizzle
                 return R.drawable.climacons_drizzle_pleasant;
             case 311: // showers
             case 312: // showers
                 return R.drawable.climacons_showers_pleasant;
             case 340: // scattered showers
                 return R.drawable.climacons_scattered_showers_pleasant;
-            case 33: // severe thunderstorms
-            case 34: // thunderstorms
+            case 303: // severe thunderstorms
+            case 304: // thunderstorms
             case 337: // isolated thunderstorms
             case 345: // thundershowers
             case 347: // isolated thundershowers
@@ -289,31 +289,31 @@ public class ClimaconsColorIconTheme implements IIconTheme {
             case 423: // blustery
             case 436: // hot
                 return R.drawable.climacons_sunny_warm;
-            case 40: // tornado
-            case 41: // tropical storm
-            case 42: // hurricane
+            case 400: // tornado
+            case 401: // tropical storm
+            case 402: // hurricane
             case 424: // windy
                 return R.drawable.climacons_windy_warm;
-            case 45: // mixed rain and snow
-            case 46: // mixed rain and sleet
-            case 47: // mixed snow and sleet
+            case 405: // mixed rain and snow
+            case 406: // mixed rain and sleet
+            case 407: // mixed snow and sleet
             case 418: // sleet
-            case 48: // freezing drizzle
+            case 408: // freezing drizzle
             case 410: // freezing rain
             case 414: // light snow showers
                 return R.drawable.climacons_mixed_rain_and_snow_warm;
             case 417: // hail
             case 435: // mixed rain and hail
                 return R.drawable.climacons_hail_warm;
-            case 49: // drizzle
+            case 409: // drizzle
                 return R.drawable.climacons_drizzle_warm;
             case 411: // showers
             case 412: // showers
                 return R.drawable.climacons_showers_warm;
             case 440: // scattered showers
                 return R.drawable.climacons_scattered_showers_warm;
-            case 43: // severe thunderstorms
-            case 44: // thunderstorms
+            case 403: // severe thunderstorms
+            case 404: // thunderstorms
             case 437: // isolated thunderstorms
             case 445: // thundershowers
             case 447: // isolated thundershowers
@@ -357,31 +357,31 @@ public class ClimaconsColorIconTheme implements IIconTheme {
             case 523: // blustery
             case 536: // hot
                 return R.drawable.climacons_sunny_hot;
-            case 50: // tornado
-            case 51: // tropical storm
-            case 52: // hurricane
+            case 500: // tornado
+            case 501: // tropical storm
+            case 502: // hurricane
             case 524: // windy
                 return R.drawable.climacons_windy_hot;
-            case 55: // mixed rain and snow
-            case 56: // mixed rain and sleet
-            case 57: // mixed snow and sleet
+            case 505: // mixed rain and snow
+            case 506: // mixed rain and sleet
+            case 507: // mixed snow and sleet
             case 518: // sleet
-            case 58: // freezing drizzle
+            case 508: // freezing drizzle
             case 510: // freezing rain
             case 514: // light snow showers
                 return R.drawable.climacons_mixed_rain_and_snow_hot;
             case 517: // hail
             case 535: // mixed rain and hail
                 return R.drawable.climacons_hail_hot;
-            case 59: // drizzle
+            case 509: // drizzle
                 return R.drawable.climacons_drizzle_hot;
             case 511: // showers
             case 512: // showers
                 return R.drawable.climacons_showers_hot;
             case 540: // scattered showers
                 return R.drawable.climacons_scattered_showers_hot;
-            case 53: // severe thunderstorms
-            case 54: // thunderstorms
+            case 503: // severe thunderstorms
+            case 504: // thunderstorms
             case 537: // isolated thunderstorms
             case 545: // thundershowers
             case 547: // isolated thundershowers
